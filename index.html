@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Trabajos</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body class="fade-in">
+
+    <header class="cabecera-transparente">
+        <h1>CATÁLOGO DE TRABAJOS</h1>
+    </header>
+
+    <nav class="botones-filtro">
+        <button onclick="cargarCategoria('estilismo', 20)" class="btn-naranja">ESTILISMO</button>
+        <button onclick="cargarCategoria('unas', 20)" class="btn-verde">UÑAS</button>
+        <button onclick="cargarCategoria('lashismo', 20)" class="btn-azul">LASHISMO</button>
+    </nav>
+
+    <main id="galeria" class="categoria"></main>
+
+    <script>
+        function cargarCategoria(nombreCarpeta, cantidadFotos) {
+            const galeria = document.getElementById('galeria');
+            galeria.innerHTML = ""; 
+
+            for (let i = 1; i <= cantidadFotos; i++) {
+                const img = document.createElement('img');
+                img.src = `imagenes/${nombreCarpeta}/${i}.jpeg`;
+                img.alt = `Trabajo ${i}`;
+                
+                img.onerror = function() {
+                    if (this.src.includes('.jpeg')) {
+                        this.src = `imagenes/${nombreCarpeta}/${i}.png`;
+                    } else {
+                        this.style.display = 'none';
+                    }
+                };
+                galeria.appendChild(img);
+            }
+        }
+        window.onload = () => cargarCategoria('unas', 17);
+    </script>
+</body>
+</html>

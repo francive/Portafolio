@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    /* Degradado rosa */
+    background: linear-gradient(180deg, #a95e6d 0%, #d6a1a1 50%, #f2d1d1 100%);
+    background-attachment: fixed;
+    text-align: center;
+    padding: 20px;
+}
+
+.fade-in {
+    animation: fadeIn ease 1.5s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Título con 50% de transparencia (Glassmorphism) */
+.cabecera-transparente {
+    background-color: rgba(255, 255, 255, 0.5); /* Blanco al 50% de opacidad */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque detrás del título */
+    padding: 30px;
+    margin: 20px auto 40px auto;
+    border-radius: 20px;
+    max-width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cabecera-transparente h1 {
+    color: #4a2c32; /* Un color café oscuro/rosado para que combine */
+    letter-spacing: 2px;
+    font-size: 1.8rem;
+}
+
+/* Botones */
+.botones-filtro {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 12px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50px;
+    border: 2px solid white;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.btn-naranja { background-color: #d0166a; }
+.btn-verde { background-color: #27ae60; }
+.btn-azul { background-color: #2980b9; }
+
+button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+/* Galería */
+.categoria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.categoria img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 4px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
